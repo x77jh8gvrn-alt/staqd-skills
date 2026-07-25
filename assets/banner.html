@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --navy-950: #070d1c;
+    --navy-900: #0a1124;
+    --navy-850: #0d1730;
+    --accent: #2b4ed6;
+    --accent-2: #4f74ff;
+    --edge: #1c2b52;
+    --ink: #fafafa;
+    --muted: #b6c4e6;
+    --faint: #6a7ba6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #05080f; font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif; }
+
+  .stage {
+    position: relative;
+    width: 1280px;
+    height: 420px;
+    overflow: hidden;
+    background: linear-gradient(158deg, #0d1730 0%, #0a1124 54%, #080d1c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ambient light + accent bloom */
+  .glow-top {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(1150px 560px at 50% -22%, rgba(24, 48, 95, 0.85) 0%, rgba(10, 17, 36, 0) 60%);
+  }
+  .glow-accent {
+    position: absolute; z-index: 0;
+    width: 620px; height: 620px; left: -160px; bottom: -320px;
+    background: radial-gradient(circle, rgba(43, 78, 214, 0.30) 0%, rgba(43, 78, 214, 0) 66%);
+  }
+  .glow-accent.r {
+    left: auto; right: -180px; bottom: auto; top: -300px;
+    background: radial-gradient(circle, rgba(79, 116, 255, 0.20) 0%, rgba(79, 116, 255, 0) 66%);
+  }
+  /* fine engineering grid */
+  .grid {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(43, 78, 214, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(43, 78, 214, 0.055) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(920px 480px at 50% 42%, #000 0%, transparent 82%);
+    -webkit-mask-image: radial-gradient(920px 480px at 50% 42%, #000 0%, transparent 82%);
+  }
+  /* top sheen + hairline edges */
+  .sheen { position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0) 16%); }
+  .edge-top { position: absolute; top: 0; left: 0; right: 0; height: 1px; z-index: 1;
+    background: linear-gradient(90deg, transparent, rgba(43,78,214,0.5), transparent); }
+  .edge-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 1px; z-index: 1;
+    background: linear-gradient(90deg, transparent, rgba(43,78,214,0.35), transparent); }
+
+  .content { position: relative; z-index: 2; text-align: center; padding: 0 40px; }
+
+  .lockup { display: flex; align-items: center; justify-content: center; gap: 20px; }
+  .mark { width: 62px; height: 62px; filter: drop-shadow(0 8px 22px rgba(43,78,214,0.45)); }
+  .wordmark {
+    font-size: 78px; font-weight: 800; letter-spacing: -3px; color: var(--ink); line-height: 1;
+    text-shadow: 0 0 44px rgba(79, 116, 255, 0.32);
+  }
+
+  .tagline {
+    margin-top: 22px; font-size: 25px; font-weight: 500; letter-spacing: -0.2px; color: var(--muted);
+  }
+  .tagline .tool { color: #93aaff; font-weight: 600; }
+
+  .meta {
+    margin-top: 16px; font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 12.5px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--faint);
+  }
+  .meta .sep { color: #2c3d63; padding: 0 8px; }
+
+  .chips { margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; max-width: 1180px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 7px 13px 7px 10px; border-radius: 999px;
+    border: 1px solid rgba(125, 148, 210, 0.18);
+    background: rgba(255, 255, 255, 0.022);
+  }
+  .dot { width: 13px; height: 13px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(255,255,255,0.10) inset, 0 0 12px var(--halo); }
+  .chip span { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #a9b8dc; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="glow-top"></div>
+    <div class="glow-accent"></div>
+    <div class="glow-accent r"></div>
+    <div class="grid"></div>
+    <div class="sheen"></div>
+    <div class="edge-top"></div>
+    <div class="edge-bottom"></div>
+
+    <div class="content">
+      <div class="lockup">
+        <svg class="mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#14264f"/><stop offset="1" stop-color="#0a1124"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="15" fill="url(#bg)" stroke="#1c2b52"/>
+          <rect x="13" y="17" width="31" height="8" rx="3" fill="#7d9bff"/>
+          <rect x="20" y="28" width="31" height="8" rx="3" fill="#2b4ed6"/>
+          <rect x="13" y="39" width="31" height="8" rx="3" fill="#9db4ff" opacity="0.75"/>
+        </svg>
+        <div class="wordmark">staqd</div>
+      </div>
+
+      <div class="tagline">Design-system skills for <span class="tool">Claude</span>, <span class="tool">Cursor</span> &amp; <span class="tool">Codex</span></div>
+
+      <div class="meta">8 FREE SKILLS <span class="sep">/</span> SKILL.md FORMAT <span class="sep">/</span> MIT LICENSED</div>
+
+      <div class="chips">
+        <div class="chip"><span class="dot" style="background:linear-gradient(135deg,#6D5BF8,#B9B2FB);--halo:rgba(109,91,248,0.5)"></span><span>Bento</span></div>
+        <div class="chip"><span class="dot" style="background:linear-gradient(135deg,#FFE600,#FF5C00);--halo:rgba(255,92,0,0.5)"></span><span>Neobrutalism</span></div>
+        <div class="chip"><span class="dot" style="background:linear-gradient(135deg,#7C5CFF,#22D3EE);--halo:rgba(124,92,255,0.5)"></span><span>Glassmorphism</span></div>
+        <div class="chip"><span class="dot" style="background:linear-gradient(135deg,#3B82F6,#22C55E);--halo:rgba(59,130,246,0.5)"></span><span>Dashboard</span></div>
+        <div class="chip"><span class="dot" style="background:linear-gradient(135deg,#7C5CFC,#FF8FB1);--halo:rgba(124,92,252,0.5)"></span><span>Claymorphism</span></div>
+        <div class="chip"><span class="dot" style="background:linear-gradient(135deg,#FAFAFA,#6B6B6B);--halo:rgba(255,255,255,0.25)"></span><span>Minimal</span></div>
+        <div class="chip"><span class="dot" style="background:linear-gradient(135deg,#B23A2E,#E4DFD4);--halo:rgba(178,58,46,0.5)"></span><span>Editorial</span></div>
+        <div class="chip"><span class="dot" style="background:linear-gradient(135deg,#00E5FF,#FF2E97);--halo:rgba(0,229,255,0.5)"></span><span>Neon</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

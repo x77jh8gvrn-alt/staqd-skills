@@ -1,6 +1,19 @@
-# staqd skills — free design-system skills for Claude, Cursor & Codex
+<p align="center">
+  <a href="https://staqd.ai"><img src="assets/banner.png" alt="staqd skills — design-system skills for Claude, Cursor & Codex" width="100%"></a>
+</p>
 
-Installable, framework-agnostic **design-system skills** for AI coding agents. Each skill is a single `SKILL.md` that teaches your agent a complete visual language — color, type, layout, components, motion, and accessibility — so the UI it generates looks deliberate instead of generic.
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2b4ed6?style=flat-square&labelColor=0a1124" alt="MIT License"></a>&nbsp;
+  <img src="https://img.shields.io/badge/skills-8_free-2b4ed6?style=flat-square&labelColor=0a1124" alt="8 free skills">&nbsp;
+  <img src="https://img.shields.io/badge/format-SKILL.md-4f74ff?style=flat-square&labelColor=0a1124" alt="SKILL.md format">&nbsp;
+  <a href="https://github.com/x77jh8gvrn-alt/staqd-skills/stargazers"><img src="https://img.shields.io/github/stars/x77jh8gvrn-alt/staqd-skills?style=flat-square&color=4f74ff&labelColor=0a1124" alt="GitHub stars"></a>&nbsp;
+  <a href="https://staqd.ai"><img src="https://img.shields.io/badge/full_library-staqd.ai-fafafa?style=flat-square&labelColor=0a1124" alt="staqd.ai"></a>
+</p>
+
+<p align="center">
+  <b>Installable, framework-agnostic design-system skills for AI coding agents.</b><br>
+  Each skill is a single <code>SKILL.md</code> that teaches your agent a complete visual language — color, type, layout, components, motion &amp; accessibility — so the UI it generates looks deliberate, not generic.
+</p>
 
 These are the **8 free skills** from [**staqd**](https://staqd.ai). The full library is **67 skills** across aesthetics, layouts, tones, and themes — browse them all (with live, hosted UI demos) at **[staqd.ai/skills](https://staqd.ai/skills)**.
 
